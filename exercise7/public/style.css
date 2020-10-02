@@ -1,0 +1,16 @@
+.center {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+.login__container {
+    max-width: 500px;
+    margin: auto;
+}
