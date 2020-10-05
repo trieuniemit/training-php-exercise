@@ -16,4 +16,4 @@
 
   }
 
-  require 'views/login-view.php';
+  require PATH.'/views/login-view.php';

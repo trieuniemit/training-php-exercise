@@ -1,12 +1,14 @@
 <?php
 
+  define('URL', str_replace('index.php', '', $_SERVER['PHP_SELF']));
+  define('PATH', __DIR__);
+
   session_start();
 
-  require 'common/constants.php';
   require 'common/functions.php';
 
   // Get action of user from $_GET when user provide url params
-  $act = isset($_GET['act']) && !empty($_GET['act']) ? $_GET['act'] : false;
+  $act = isset($_GET['act']) && !empty($_GET['act']) ? $_GET['act'] : 'home';
 
   // if user not logged in, require to login action
   if (!isLoggedIn()) {
@@ -15,11 +17,10 @@
     die();
   }
 
+  // replace @ to / in action for require correct path.
+  // For example: action from request is: students@add, so require path will be students/add
+  $act = str_replace('@', '/', $act);
+
   // if user provide action, let require the action file from "actions" folders
-  if($act) {
-    require "actions/$act.php";
-  } else {
-    // require to actions/home.php if no action to show list and form
-    require "actions/home.php";
-  }
+  require "actions/$act.php";
 
