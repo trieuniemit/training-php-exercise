@@ -63,7 +63,7 @@
                     <td><?php echo $student['phone_number'] ?></td>
                     <td><?php echo $student['address'] ?></td>
                     <td>
-                        <a href="?act=students@delete&code=<?php echo $student['code'] ?>">Delete</a> |
+                        <a onclick="confirmDelete(event)" href="?act=students@delete&code=<?php echo $student['code'] ?>">Delete</a> |
                         <a href="?act=students@edit&code=<?php echo $student['code'] ?>">Edit</a>
                     </td>
                 </tr>
