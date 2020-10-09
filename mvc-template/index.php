@@ -18,21 +18,21 @@
 
   // Get action of user from $_GET when user provide url params
   // default is home@index
-  $act = isset($_GET['act']) && !empty($_GET['act']) ? $_GET['act'] : 'home@index';
+  $act = isset($_GET['act']) && !empty($_GET['act']) ? $_GET['act'] : 'home/index';
 
 
   // split string to array to get controller and method
-  // Request: auth@login => ['auth', 'login']
-  $act = explode('@', $act);
+  // Request: auth/login => ['auth', 'login']
+  $act = explode('/', $act);
 
-  // get controller class, if provide "auth" it'll be "AuthControler"
+  // get controller class, if provide "auth" it'll be "AuthController"
   $controller = ucfirst($act[0]) . 'Controller';
 
   // get method
   $method = $act[1];
   try {
     /**
-     * Dynamic instance classe
+     * Dynamic instance class
      * It's same new ClassName()
      * Hoverer, if "ClassName" is value in a variable we need to implement like below
      */
