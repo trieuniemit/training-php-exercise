@@ -1,10 +1,16 @@
 <?php
 
   class Database {
-    static $conn;
+    static $connection;
+    protected $conn;
+
+    function __construct()
+    {
+      $this->conn = self::$connection;
+    }
 
     static function instance() {
-      self::$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+      self::$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     }
 
     function fetch($res) {
